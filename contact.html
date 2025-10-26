@@ -43,57 +43,83 @@
 					</nav>
 
                     				<!-- Footer -->
-					<footer id="footer">
-						<section>
-							<form method="post" action="#">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="3"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</form>
+			    <footer id="footer">
+<!-- This is the section for the Contact Form  -->
+<section class="contact">
+  <div class="inner">
+
+    <section class="split">
+
+      <!-- Left side of contact form -->
+      <section>
+        <h2>Get in touch</h2>
+        <form id="contact-form" action="https://formsubmit.co/23871082b040240f65ba7cc142b3abe8" method="post" autocomplete="on">
+        <!-- Form text input for Full Name -->
+          <div class="fields">
+            <div class="field">
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" placeholder="Zach Bryan" required minlength="6" autocomplete="name">
+            </div>
+        <!-- Form text input for Email address -->
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="name@example.com" required autocomplete="email">
+            </div>
+        <!-- Form text input for Message -->
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="How can I help?" required minlength="8"></textarea>
+            </div>
+          </div>
+        <!-- Honeypot anti-spam -->
+          <input type="text" name="honey" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;">
+        <!-- button tag used for input, in line with Semantic HTML-->
+          <ul class="actions">
+            <li><input type="submit" value="Send Message" class="button primary" /></li>
+          </ul>
+
+        </form>
+      </section>
+
+      <!-- Right side of contact form -->
+      <section>
+        <div class="alt">
+         
+      </section>
+        </div>
+   
+</section>
+
+
+                    <section>
+                        <div class="alt">
+                            <h3>Address</h3>
+                            <p>25A Barker Rd,<br>Strathfield, NSW 2135</p>
+                        </div>
+
+                        <div>
+                            <h3>Phone</h3>
+                            <p><a href="#">1300 275 228</a></p>
+                        </div>
+
+                        <div>
+                            <h3>Email</h3>
+                            <p><a href="#">Ruby.faughlin@gmail.com</a></p>
+                        </div>
+      
+						<h3>Social</h3>
+							<ul class="icons alt">
+								<li><a href="https://www.facebook.com/ruby.faughlin/" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+								<li><a href="https://www.instagram.com/ruby.faughlin/" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="https://github.com/RubyFaughlin/COMP208_AT3_Faughlin_Ruby" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+							</ul>
 						</section>
-						<section class="split contact">
-							<section class="alt">
-								<h3>Address</h3>
-								<p>1234 Somewhere Road #87257<br />
-								Nashville, TN 00000-0000</p>
-							</section>
-							<section>
-								<h3>Phone</h3>
-								<p><a href="#">(000) 000-0000</a></p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href="#">info@untitled.tld</a></p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
+					</section>
+				</footer>
 
 				<!-- Copyright -->
 					<div id="copyright">
-						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+						<ul><li>&copy; Ruby Faughlin </li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 					</div>
 
 			</div>
