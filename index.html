@@ -16,6 +16,7 @@
 
 		<!-- Wrapper -->
 			<div id="wrapper" class="fade-in">
+				<div class="bg"></div>
 
 				<!-- Intro -->
 					<div id="intro">
@@ -23,6 +24,30 @@
 						Teaching Portfolio</h1>
 						<p> This is the professional portfolio of Ruby Faughlin, a pre-service educator dedicated to developing high-quality, student-centred learning experiences.
 							"Not just who I am, but who I am becoming."</p>
+
+						<!-- JavaScript string interpolation with personalised message -->
+						 <section class="section">
+							
+							<p id="greeting" style="max-width: 500px; margin: 0 auto; text-align: center;" >To find out more about this portfolio, please enter your name!</p>
+							<input id="usernameInput" class="input-spaced" type="text" placeholder="Enter your name">
+							<button id="setGreetingBtn" type="button" style="padding: 0.5rem 2rem 3rem 2rem; margin-top: 20px; margin-bottom: 20px;" >Set Greeting</button>
+
+
+						<script>
+							function setGreeting() {
+							const input = document.getElementById('usernameInput');
+							const greeting = document.getElementById('greeting');
+							const name = (input?.value || '').trim();
+							greeting.textContent = name ? `Welcome to my portfolio, ${name}! Here you can explore my journey at University, discover my professional experiences and explore the projects I have been working on that showcase my creativity and growth.
+							Feel free to reach out through the ‘Contact Me’ page — I’d love to hear from you.`
+
+														: 'Welcome to my portfolio!';
+							}
+							document.getElementById('setGreetingBtn').addEventListener('click',
+							setGreeting);
+						</script>
+					</section>
+
 						<ul class="actions">
 							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
 						</ul>
@@ -30,8 +55,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo">Massively</a>
-
+						<a href="index.html" class="logo">Teaching Portfolio</a>
 					</header>
 
 				<!-- Nav -->
@@ -40,7 +64,6 @@
 							<li class="active"><a href="index.html">Home</a></li>
 							<li><a href="teaching-practice.html">Teaching Practice</a></li>
 							<li><a href="project-showcase.html">Project Showcase</a></li>
-							<li><a href="generic.html">Generic Page</a></li>
 							<li><a href="elements.html">Elements Reference</a></li>
 							<li><a href="resources.html">Resources</a></li>
 							<li><a href="resume.html">Resume</a></li>
@@ -48,10 +71,9 @@
 
 						</ul>
 						<ul class="icons">
-							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://www.facebook.com/ruby.faughlin/" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://www.instagram.com/ruby.faughlin/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://github.com/RubyFaughlin/COMP208_AT3_Faughlin_Ruby" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 						</ul>
 					</nav>
 
@@ -61,6 +83,31 @@
 						<!-- Featured Post 1 (About Me) -->
 							<article class="post featured">
 								<header class="major">
+
+										<!-- JavaScript Feature for Switching between Light and Dark Mode -->
+								<ul class="actions special">
+    								<li>
+        								<button id="theme-toggle" class="button large">Light/Dark Mode</button>
+    								</li>
+								</ul>
+
+								<script>
+									const btn = document.getElementById('theme-toggle');
+									const body = document.body;
+									
+								btn.addEventListener('click', () => {
+									body.classList.toggle('dark-mode');
+									body.classList.toggle('light-mode');
+
+
+									if (body.classList.contains('dark-mode')) {
+										btn.textContent = "Switch to Light Mode";
+									} else {
+										btn.textContent = "Switch to Dark Mode";
+									}
+									});
+									</script>
+
 									<span class="date">October 23, 2025</span>
 									<h2><a href="#">Who Am I?</a> </h2> 
 										 <h3>And Why Am I Becoming a Teacher?</h3>
@@ -70,7 +117,32 @@
 									Outside of the classroom, I am a passionate traveller. I also love sports and play rugby league which fuels my belief in teamwork and resilience, both on and of the field. At home, I share life with my cheeky Labrador puppy, Ryobi, who keeps me on my toes and reminds me to enjoy the little things.</p>
 
 								</header>
-								<a href="#" class="image main"><img src="images/background-img.png" alt="" /></a>
+					
+
+		<!-- JavaScript to Show/Hide (Toggle) Image -->
+    		<section class="section">
+				<button onclick="toggle()">Hide/Show Image</button>
+
+		<!-- Resume image to show/hide -->
+		<div class="image main">
+			<img id="homeImage" src="images/background-photo.png" alt="This is a thumb nail of my home page.">
+		</div>
+
+
+				<script> 
+					function toggle () {
+					let para = document.getElementById("homeImage");
+					if (para.style.display === "none") {
+						para.style.display = "block";
+					} else {
+						para.style.display = "none";
+					}
+					console.log("Now display is:", para.style.display);
+					}
+        		</script>
+    		</section>
+
+
 								<ul class="actions special">
 									<li><a href="docs/why-i-teach.pdf" class="button large">Click Here to see "Why I Teach"</a></li>
 								</ul>
@@ -126,94 +198,16 @@
 								</ul>
 							</article>
 
-
-						<!-- Posts -->
-							<section class="posts">
-								<article>
-									<header>
-										<span class="date">April 24, 2017</span>
-										<h2><a href="#">Sed magna<br />
-										ipsum faucibus</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<span class="date">April 22, 2017</span>
-										<h2><a href="#">Primis eget<br />
-										imperdiet lorem</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/pic03.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<span class="date">April 18, 2017</span>
-										<h2><a href="#">Ante mattis<br />
-										interdum dolor</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<span class="date">April 14, 2017</span>
-										<h2><a href="#">Tempus sed<br />
-										nulla imperdiet</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<span class="date">April 11, 2017</span>
-										<h2><a href="#">Odio magna<br />
-										sed consectetur</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<span class="date">April 7, 2017</span>
-										<h2><a href="#">Augue lorem<br />
-										primis vestibulum</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
-									</ul>
-								</article>
-							</section>
-
 						<!-- Footer -->
 							<footer>
 								<div class="pagination">
 									<!--<a href="#" class="previous">Prev</a>-->
-									<a href="#" class="page active">1</a>
-									<a href="#" class="page">2</a>
-									<a href="#" class="page">3</a>
-									<span class="extra">&hellip;</span>
-									<a href="#" class="page">8</a>
-									<a href="#" class="page">9</a>
-									<a href="#" class="page">10</a>
+									<a href="http://127.0.0.1:5500/index.html" class="page active">1</a>
+									<a href="http://127.0.0.1:5500/teaching-practice.html" class="page">2</a>
+									<a href="http://127.0.0.1:5500/project-showcase.html" class="page">3</a>
+									<a href="http://127.0.0.1:5500/resources.html" class="page">5</a>
+									<a href="http://127.0.0.1:5500/resume.html" class="page">6</a>
+									<a href="http://127.0.0.1:5500/contact.html" class="page">7</a>
 									<a href="#" class="next">Next</a>
 								</div>
 							</footer>
@@ -222,56 +216,83 @@
 
 				<!-- Footer -->
 					<footer id="footer">
-						<section>
-							<form method="post" action="#">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="3"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</form>
+
+						<!-- This is the section for the Contact Form  -->
+<section class="contact">
+  <div class="inner">
+
+    <section class="split">
+
+      <!-- Left side of contact form -->
+      <section>
+        <h2>Get in touch</h2>
+        <form id="contact-form" action="https://formsubmit.co/23871082b040240f65ba7cc142b3abe8" method="post" autocomplete="on">
+        <!-- Form text input for Full Name -->
+          <div class="fields">
+            <div class="field">
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" placeholder="Zach Bryan" required minlength="6" autocomplete="name">
+            </div>
+        <!-- Form text input for Email address -->
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="name@example.com" required autocomplete="email">
+            </div>
+        <!-- Form text input for Message -->
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="How can I help?" required minlength="8"></textarea>
+            </div>
+          </div>
+        <!-- Honeypot anti-spam -->
+          <input type="text" name="honey" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;">
+        <!-- button tag used for input, in line with Semantic HTML-->
+          <ul class="actions">
+            <li><input type="submit" value="Send Message" class="button primary" /></li>
+          </ul>
+
+        </form>
+      </section>
+
+      <!-- Right side of contact form -->
+      <section>
+        <div class="alt">
+         
+      </section>
+        </div>
+   
+</section>
+
+
+                    <section>
+                        <div class="alt">
+                            <h3>Address</h3>
+                            <p>25A Barker Rd,<br>Strathfield, NSW 2135</p>
+                        </div>
+
+                        <div>
+                            <h3>Phone</h3>
+                            <p><a href="#">1300 275 228</a></p>
+                        </div>
+
+                        <div>
+                            <h3>Email</h3>
+                            <p><a href="#">Ruby.faughlin@gmail.com</a></p>
+                        </div>
+      
+						<h3>Social</h3>
+							<ul class="icons alt">
+								<li><a href="https://www.facebook.com/ruby.faughlin/" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+								<li><a href="https://www.instagram.com/ruby.faughlin/" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="https://github.com/RubyFaughlin/COMP208_AT3_Faughlin_Ruby" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+							</ul>
 						</section>
-						<section class="split contact">
-							<section class="alt">
-								<h3>Address</h3>
-								<p>1234 Somewhere Road #87257<br />
-								Nashville, TN 00000-0000</p>
-							</section>
-							<section>
-								<h3>Phone</h3>
-								<p><a href="#">(000) 000-0000</a></p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href="#">info@untitled.tld</a></p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
+					</section>
+				</footer>
 
 				<!-- Copyright -->
 					<div id="copyright">
-						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+						<ul><li>&copy; Ruby Faughlin </li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 					</div>
 
 			</div>
