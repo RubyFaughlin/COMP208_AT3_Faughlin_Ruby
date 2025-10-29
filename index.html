@@ -13,6 +13,7 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
+	</body>
 
 		<!-- Wrapper -->
 			<div id="wrapper" class="fade-in">
@@ -81,32 +82,54 @@
 					<div id="main">
 
 						<!-- Featured Post 1 (About Me) -->
-							<article class="post featured">
-								<header class="major">
+<article class="post featured">
+  <header class="major">
 
-										<!-- JavaScript Feature for Switching between Light and Dark Mode -->
-								<ul class="actions special">
-    								<li>
-        								<button id="theme-toggle" class="button large">Light/Dark Mode</button>
-    								</li>
-								</ul>
+    <!-- Dark/Light Mode Toggle Button -->
+    <ul class="actions special">
+      <li>
+        <button id="theme-toggle" class="button large">Switch to Dark Mode</button>
+      </li>
+    </ul>
 
-								<script>
-									const btn = document.getElementById('theme-toggle');
-									const body = document.body;
-									
-								btn.addEventListener('click', () => {
-									body.classList.toggle('dark-mode');
-									body.classList.toggle('light-mode');
+  </header>
+</article>
 
+<!-- Dark/Light Mode Script -->
+<script>
+  const btn = document.getElementById('theme-toggle');
+  const body = document.body;
 
-									if (body.classList.contains('dark-mode')) {
-										btn.textContent = "Switch to Light Mode";
-									} else {
-										btn.textContent = "Switch to Dark Mode";
-									}
-									});
-									</script>
+  btn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    body.classList.toggle('is-preload'); // keeps original class logic
+
+    // Update button text
+    if (body.classList.contains('dark-mode')) {
+      btn.textContent = "Switch to Light Mode";
+    } else {
+      btn.textContent = "Switch to Dark Mode";
+    }
+  });
+</script>
+
+<!-- SCSS / CSS for content block -->
+<style>
+  /* Light mode (default) */
+  body.is-preload #main {
+    background-color: white; /* or use _palette(bg) if using Sass variables */
+    color: black;            /* text color for readability */
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  /* Dark mode (content block only) */
+  body.dark-mode #main {
+    background-color: #222; /* dark content block */
+    color: #fff;            /* text color */
+    transition: background-color 0.3s, color 0.3s;
+  }
+</style>
+
 
 									<span class="date">October 23, 2025</span>
 									<h2><a href="#">Who Am I?</a> </h2> 
