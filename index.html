@@ -32,6 +32,8 @@
 							<p id="greeting" style="max-width: 500px; margin: 0 auto; text-align: center;" >To find out more about this portfolio, please enter your name!</p>
 							<input id="usernameInput" class="input-spaced" type="text" placeholder="Enter your name">
 							<button id="setGreetingBtn" type="button" style="padding: 0.5rem 2rem 3rem 2rem; margin-top: 20px; margin-bottom: 20px;" >Set Greeting</button>
+							<!-- Clear Button -->
+							<button id="clearGreetingBtn" type="button" style="padding: 0.5rem 2rem 3rem 2rem; margin-top: 0; margin-bottom: 20px;">Clear</button>
 
 
 						<script>
@@ -46,6 +48,14 @@
 							}
 							document.getElementById('setGreetingBtn').addEventListener('click',
 							setGreeting);
+
+							document.getElementById('clearGreetingBtn').addEventListener('click', () => {
+							document.getElementById('usernameInput').value = ''; /* This clears the input */
+    						document.getElementById('greeting').textContent = 'To find out more about this portfolio, please enter your name!'; // resets greeting
+    
+});
+
+							
 						</script>
 					</section>
 
@@ -65,7 +75,6 @@
 							<li class="active"><a href="index.html">Home</a></li>
 							<li><a href="teaching-practice.html">Teaching Practice</a></li>
 							<li><a href="project-showcase.html">Project Showcase</a></li>
-							<li><a href="elements.html">Elements Reference</a></li>
 							<li><a href="resources.html">Resources</a></li>
 							<li><a href="resume.html">Resume</a></li>
                             <li><a href="contact.html">Contact Me</a></li>
@@ -95,39 +104,56 @@
   </header>
 </article>
 
-<!-- Dark/Light Mode Script -->
+<!-- Dark/Light Mode code -->
 <script>
   const btn = document.getElementById('theme-toggle');
   const body = document.body;
 
   btn.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    body.classList.toggle('is-preload'); // keeps original class logic
+    body.classList.toggle('dark-mode'); /* switch dark mode on/off */
 
-    // Update button text
+    const textElements = document.querySelectorAll(
+      '#main h1, #main h2, #main h3, #main h4, #main h5, #main h6, #main p, #main a, #main strong, #main .button.large, theme-toggle'
+    );
+
     if (body.classList.contains('dark-mode')) {
       btn.textContent = "Switch to Light Mode";
+      textElements.forEach(el => el.style.color = '#fff'); /* white text */
+	  
     } else {
       btn.textContent = "Switch to Dark Mode";
+      textElements.forEach(el => el.style.color = ''); /* reset to default (white mode) */
+	  
     }
   });
 </script>
 
-<!-- SCSS / CSS for content block -->
 <style>
-  /* Light mode (default) */
-  body.is-preload #main {
+  
+  body.is-preload #main {			/* Light mode (default) */
     background-color: white; /* or use _palette(bg) if using Sass variables */
-    color: black;            /* text color for readability */
+    color: black;            /* text colour for readability */
     transition: background-color 0.3s, color 0.3s;
   }
 
-  /* Dark mode (content block only) */
-  body.dark-mode #main {
+  body.dark-mode #main {					  /* Dark mode (content column only) */
     background-color: #222; /* dark content block */
-    color: #fff;            /* text color */
+    color: #fff;            /* text colour */
     transition: background-color 0.3s, color 0.3s;
   }
+
+button, .button, input[type=submit], input[type=reset], input[type=button] {		  /* Colour of ALL buttons */
+    background-color: #7D7D7D !important;			  /* Grey button colour */
+    color: #fff !important;							  /* Light blue border colour */
+    border: 1px solid #97DBFF !important;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+button:hover, .button:hover, input[type=submit]:hover, input[type=reset]:hover, input[type=button]:hover { /* Hover effect */
+    background-color: #7D7D7D !important;		/* Grey button colour */
+    color: #fff !important;			/* White text */
+}
+
 </style>
 
 

@@ -6,32 +6,20 @@
 -->
 <html>
 	<head>
-		<title>Massively by HTML5 UP</title>
+		<title>Generic Page - Massively by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
-	<body class="is-preload">
+	<body class="is-preload light-mode">
 
 		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
-
-				<!-- Intro -->
-					<div id="intro">
-						<h1>Ruby Faughlin<br />
-						Teaching Portfolio</h1>
-						<p> This is the professional portfolio of Ruby Faughlin, a pre-service educator dedicated to developing high-quality, student-centred learning experiences.
-							"Not just who I am, but who I am becoming."</p>
-						<ul class="actions">
-							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-						</ul>
-					</div>
+			<div id="wrapper">
 
 				<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo">Massively</a>
-
+						<a href="index.html" class="logo">Teaching Portfolio</a>
 					</header>
 
 				<!-- Nav -->
@@ -40,18 +28,15 @@
 							<li><a href="index.html">Home</a></li>
                             <li><a href="teaching-practice.html">Teaching Practice</a></li>
                             <li><a href="project-showcase.html">Project Showcase</a></li>
-							<li><a href="generic.html">Generic Page</a></li>
-							<li><a href="elements.html">Elements Reference</a></li>
                             <li class="active"><a href="resources.html">Resources</a></li>
                             <li><a href="resume.html">Resume</a></li>
                             <li><a href="contact.html">Contact Me</a></li>
 
 						</ul>
 						<ul class="icons">
-							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://www.facebook.com/ruby.faughlin/" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://www.instagram.com/ruby.faughlin/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://github.com/RubyFaughlin/COMP208_AT3_Faughlin_Ruby" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 						</ul>
 					</nav>
 
@@ -61,6 +46,71 @@
 						<!-- Featured Post 1 (About Me) -->
 							<article class="post featured">
 								<header class="major">
+
+									<!-- Dark/Light Mode Toggle Button -->
+    <ul class="actions special">
+      <li>
+        <button id="theme-toggle" class="button large">Switch to Dark Mode</button>
+      </li>
+    </ul>
+
+  </header>
+</article>
+
+<!-- Dark/Light Mode code -->
+<script>
+  const btn = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  btn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode'); /* switch dark mode on/off */
+
+    const textElements = document.querySelectorAll(
+      '#main h1, #main h2, #main h3, #main h4, #main h5, #main h6, #main p, #main a, #main strong, #main .button.large, theme-toggle'
+    );
+
+    if (body.classList.contains('dark-mode')) {
+      btn.textContent = "Switch to Light Mode";
+      textElements.forEach(el => el.style.color = '#fff'); /* white text */
+	  
+    } else {
+      btn.textContent = "Switch to Dark Mode";
+      textElements.forEach(el => el.style.color = ''); /* reset to default (white mode) */
+	  
+    }
+  });
+</script>
+
+<style>
+  
+  body.is-preload #main {			/* Light mode (default) */
+    background-color: white; /* or use _palette(bg) if using Sass variables */
+    color: black;            /* text colour for readability */
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  body.dark-mode #main {					  /* Dark mode (content column only) */
+    background-color: #222; /* dark content block */
+    color: #fff;            /* text colour */
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+button, .button, input[type=submit], input[type=reset], input[type=button] {		  /* Colour of ALL buttons */
+    background-color: #7D7D7D !important;			  /* Grey button colour */
+    color: #fff !important;							  /* Light blue border colour */
+    border: 1px solid #97DBFF !important;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+button:hover, .button:hover, input[type=submit]:hover, input[type=reset]:hover, input[type=button]:hover { /* Hover effect */
+    background-color: #7D7D7D !important;		/* Grey button colour */
+    color: #fff !important;			/* White text */
+}
+
+</style>
+
+				
+					<!-- Featured Post 1 (About Me) -->
 									<span class="date">October 23, 2025</span>
 									<h2><a href="#">Valuable Resources</a> </h2> 
 										 <h3>Overview for reference: a sample unit of work (NESA), a sample scope and sequence (NESA), an original slide deck and lesson handout. </h3>
@@ -76,14 +126,15 @@
 							<section class="posts">
 								<article>
 									<header>
+                                        <!-- This division provides the structure for a grid of cards with thumbnails and download links -->
 										<span class="date">March 21, 2025</span>
 										<h2><a href="#">Stage 4 Design and Technology<br />
 										Sample Unit of Work from NESA</a></h2>
 									</header>
-									<a href="#" class="image fit"><img src="images/d&t-sample-unit.png" alt="This is an image of a dessert creation I made in the Chef Lei Masterclass in TECH306. It features complementing flavours including beetroot and raspberry - giving it a vibrant colour also!" /></a>
-									<p> This dessert showcases seven complementary components that highlight floral and berry flavours through layered textures. A delicate pink macaron shell encases a smooth rose-infused white chocolate ganache and a tart raspberry crémeux, while a raspberry gel adds a bright, concentrated acidity. The base of beetroot sponge provides earthiness and colour depth, finished with a glossy red chocolate coating and accented by crisp meringue strips for texture and visual contrast.</p>
+									<a href="#" class="image fit"><img src="images/d&t-sample-unit.png" alt="This is an thumbnail image of a Design and Technology Sample Unit of Work." /></a>
+									<p>Scope & sequence, outcomes, resources, and assessment overview of Sample Unit, Design and Technology - Life Skills.</p>
 									<ul class="actions special">
-										<li><a href="docs/masterclass-recipe.pdf" class="button">Full Recipe</a></li>
+										<li><a href="docs/sample-unit.pdf" class="button">See Resource</a></li>
 									</ul>
 								</article>
 								<article>
@@ -92,10 +143,10 @@
 										<h2><a href="#">Stage 4 Technology <br />
 										Sample Unit Scope and Sequence from NESA</a></h2>
 									</header>
-									<a href="#" class="image fit"><img src="images/scope-sequence.png" alt="This is an image of my final project for TECH306 - it is a Beetroot and Raspberry Protein Bar that takes inspiration from the Chef Lei Masterclass." /></a>
-									<p> OBJECTIVE: Refine and test a product redesign, documenting development based on the brief. Suggest and justify constraints and strategies to optimise commercialisation, functionality, and environmental and social impact. My project develops a raspberry–beetroot protein bar that delivers nutritional value while incorporating visually engaging patisserie-inspired elements, elevating both sensory appeal and consumer interest.</p>
+									<a href="#" class="image fit"><img src="images/scope-sequence.png" alt="This is an thumbnail image of a Years 7 and 8 Technology Scope and Sequence." /></a>
+									<p>Organised by term, linked to Topics and Outcomes. Relevant to Technology Years 7 and 8.</p>
 									<ul class="actions special">
-										<li><a href="docs/306-protein-bar.pdf" class="button">Full Story</a></li>
+										<li><a href="docs/scope-sequence-resource.pdf" class="button">See Resource</a></li>
 									</ul>
 								</article>
 								<article>
@@ -103,10 +154,11 @@
 										<span class="date">May 29, 2025</span>
 										<h2><a href="#">Stage 4 Materials and Production Processes</a></h2>
 									</header>
-									<a href="#" class="image fit"><img src="images/thinking-about-thinking.png" alt="" /></a>
-									<p>OBJECTIVE: Design and produce a unique low stool for sale in the Taronga Zoo merchandise shop, inspired by the zoo's natural environment and commitment to conservation. The design of this stool is based off the rock patterns that form naturally along the rocky coastlines of Australia, and in particular, Wollongong. The stool is designed to tell a story of our ancestors and how we are shaped (like the coastline) by those before us.</p>
+									<a href="#" class="image fit"><img src="images/thinking-about-thinking.png" alt="This is an thumbnail image of a slide deck that I made on the topic Creative and Design Thinking." /></a>
+									<p>This is a teaching resouce that I developed during my placement at St Joseph's Catholic High School. <br> 
+                                        Slides: Introduction to 2025 Course Topic "Creative and Design Thinking.".</p>
 									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
+										<li><a href="docs/slide-deck.pdf" class="button">See Resource</a></li>
 									</ul>
 								</article>
 								<article>
@@ -114,25 +166,26 @@
 										<span class="date">March 31, 2025</span> 
                                         <h2><a href="#">Stage 4 Materials and Production Processes - UX and UI Design for Web Apps Handout </a></h2>
 									</header>
-									<a href="#" class="image fit"><img src="images/student-work.png" alt="" /></a>
-									<p>OBJECTIVE: Manufacture a timber board, accurately following workshop drawings incorporating hand and machine planing techniques, widening joints, an appropriate edge treatment, and a food-safe finish, and be branded with your maker’s mark. The design for this product highlights once again, the Australian landscape and in particular, how the water meets the land. </p>
+									<a href="#" class="image fit"><img src="images/student-work.png" alt="This is an thumbnail image of a student's work. The task was a Design Thinking Challenge where they had to Help Teens Tackle Clutter." /></a>
+									<p> This is a teaching resouce that I developed during my placement at St Joseph's Catholic High School. <br> 
+                                        Handout: Design Thinking Challenge "Helping Teens Tackle Clutter" </p>
 									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
+										<li><a href="docs/thinking-challenge-resource.pdf" class="button">See Resource</a></li>
 									</ul>
 								</article>
 							</section>
 
 						<!-- Footer -->
 							<footer>
+								<!-- This is a navigation menu in the footer-->
 								<div class="pagination">
 									<!--<a href="#" class="previous">Prev</a>-->
-									<a href="#" class="page active">1</a>
-									<a href="#" class="page">2</a>
-									<a href="#" class="page">3</a>
-									<span class="extra">&hellip;</span>
-									<a href="#" class="page">8</a>
-									<a href="#" class="page">9</a>
-									<a href="#" class="page">10</a>
+									<a href="http://127.0.0.1:5500/index.html" class="page active">1</a>
+									<a href="http://127.0.0.1:5500/teaching-practice.html" class="page">2</a>
+									<a href="http://127.0.0.1:5500/project-showcase.html" class="page">3</a>
+									<a href="http://127.0.0.1:5500/resources.html" class="page">5</a>
+									<a href="http://127.0.0.1:5500/resume.html" class="page">6</a>
+									<a href="http://127.0.0.1:5500/contact.html" class="page">7</a>
 									<a href="#" class="next">Next</a>
 								</div>
 							</footer>
